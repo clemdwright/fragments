@@ -15,11 +15,19 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        /*
+         * Dynamically add fragment
+         */
+        // Create fragment object. This contains a layout inflater on onCreateView
         MyFragment frag = new MyFragment();
+        // Create fragment manager object
         FragmentManager manager = getFragmentManager();
+        //Begin the fragment transaction
         FragmentTransaction transaction = manager.beginTransaction();
-        // params: parent, fragment object, tag
+        // Add the fragment to the transaction. params: parent, fragment object, tag
         transaction.add(R.id.my_layout, frag, "VivzFragment");
+        // Commit the transaction
         transaction.commit();
 
     }
