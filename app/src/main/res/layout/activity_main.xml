@@ -11,6 +11,8 @@
     android:id="@+id/my_layout">
 
 
+
+
     <!--Commented out because added dynamically in Main instead-->
     <!--<fragment-->
         <!--android:layout_width="wrap_content"-->
@@ -20,4 +22,21 @@
         <!--android:layout_alignParentTop="true"-->
         <!--android:layout_alignParentLeft="true"-->
         <!--android:layout_alignParentStart="true" />-->
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.example.clemw.fragmenttest.FragmentA"
+        android:id="@+id/fragment1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.example.clemw.fragmenttest.FragmentB"
+        android:id="@+id/fragment2"
+        android:layout_below="@+id/fragment1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

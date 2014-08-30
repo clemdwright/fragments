@@ -2,13 +2,12 @@ package com.example.clemw.fragmenttest;
 
 import android.app.Activity;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements Communicator {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,19 +15,19 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
 
-        /*
-         * Dynamically add fragment
-         */
-        // Create fragment object. This contains a layout inflater on onCreateView
-        MyFragment frag = new MyFragment();
-        // Create fragment manager object
-        FragmentManager manager = getFragmentManager();
-        //Begin the fragment transaction
-        FragmentTransaction transaction = manager.beginTransaction();
-        // Add the fragment to the transaction. params: parent, fragment object, tag
-        transaction.add(R.id.my_layout, frag, "VivzFragment");
-        // Commit the transaction
-        transaction.commit();
+//        /*
+//         * Dynamically add fragment
+//         */
+//        // Create fragment object. This contains a layout inflater on onCreateView
+//        MyFragment frag = new MyFragment();
+//        // Create fragment manager object
+//        FragmentManager manager = getFragmentManager();
+//        //Begin the fragment transaction
+//        FragmentTransaction transaction = manager.beginTransaction();
+//        // Add the fragment to the transaction. params: parent, fragment object, tag
+//        transaction.add(R.id.my_layout, frag, "VivzFragment");
+//        // Commit the transaction
+//        transaction.commit();
 
     }
 
@@ -50,5 +49,12 @@ public class MainActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void respond(String data) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentB f2 = (FragmentB) fragmentManager.findFragmentById(R.id.fragment2);
+        f2.changeText(data);
     }
 }
