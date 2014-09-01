@@ -54,7 +54,7 @@ public class MainActivity extends Activity implements Communicator {
     @Override
     public void respond(String data) {
         FragmentManager fragmentManager = getFragmentManager();
-        FragmentB f2 = (FragmentB) fragmentManager.findFragmentById(R.id.fragment2);
-        f2.changeText(data);
+//        FragmentB f2 = (FragmentB) fragmentManager.findFragmentById(R.id.fragment2);
+//        f2.changeText(data);
     }
 }
